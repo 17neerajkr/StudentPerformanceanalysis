@@ -545,6 +545,412 @@ plt.tight_layout()
 plt.show()
 
 
+
+
+
+
+
+
+
+
+
+------------------- numpy ----------
+Setup — import numpy
+Always write this first
+
+    
+
+    
+
+      
+
+        # install if needed
+
+        pip install numpy
+
+
+        # import — always use np as short name
+
+        import numpy as np
+      
+
+    
+
+  
+
+
+  
+BEGINNER LEVEL
+
+
+  
+
+    
+
+      
+1
+
+      
+Create a numpy array
+The basic building block of numpy
+
+      beginner
+    
+
+    
+
+      
+"What is a numpy array?"
+
+      
+
+        # normal python list
+
+        scores = [55, 67, 72, 88, 91]
+
+
+        # convert to numpy array
+
+        scores_np = np.array([55, 67, 72, 88, 91])
+
+
+        # check type
+
+        print(type(scores_np))
+
+
+        # convert your dataset column to numpy array
+
+        scores = df["report_card"].values
+
+        print(type(scores))
+      
+
+    
+
+  
+
+
+  
+
+    
+
+      
+2
+
+      
+Basic calculations
+Fast math on your dataset
+
+      beginner
+    
+
+    
+
+      
+"Calculate stats on report card scores"
+
+      
+
+        scores = df["report_card"].values
+
+
+        # average score
+
+        print(np.mean(scores))
+
+
+        # highest score
+
+        print(np.max(scores))
+
+
+        # lowest score
+
+        print(np.min(scores))
+
+
+        # total of all scores
+
+        print(np.sum(scores))
+
+
+        # standard deviation
+
+        print(np.std(scores))
+      
+
+    
+
+  
+
+
+  
+
+    
+
+      
+3
+
+      
+Array shape and size
+Understand your data dimensions
+
+      beginner
+    
+
+    
+
+      
+
+        scores = df["report_card"].values
+
+
+        # how many values
+
+        print(scores.shape)
+
+
+        # total count
+
+        print(scores.size)
+
+
+        # data type
+
+        print(scores.dtype)
+
+
+        # whole dataset as numpy array
+
+        data = df.values
+
+        print(data.shape)   # rows x columns
+      
+
+    
+
+  
+
+
+  
+
+    
+
+      
+4
+
+      
+Indexing and slicing
+Get specific values from array
+
+      beginner
+    
+
+    
+
+      
+
+        scores = df["report_card"].values
+
+
+        # get first value
+
+        print(scores[0])
+
+
+        # get last value
+
+        print(scores[-1])
+
+
+        # get first 5 values
+
+        print(scores[0:5])
+
+
+        # get values above 80
+
+        print(scores[scores > 80])
+      
+
+    
+
+  
+
+
+  
+
+    
+
+      
+5
+
+      
+Math operations
+Do math on entire array at once
+
+      beginner
+    
+
+    
+
+      
+
+        scores = df["report_card"].values
+
+
+        # add 5 marks to every student
+
+        print(scores + 5)
+
+
+        # multiply all scores by 2
+
+        print(scores * 2)
+
+
+        # convert score to percentage
+
+        print((scores / 100) * 100)
+
+
+        # round all values
+
+        print(np.round(scores, 2))
+      
+
+    
+
+  
+
+
+  
+INTERMEDIATE LEVEL
+
+
+  
+
+    
+
+      
+6
+
+      
+Reshape array
+Change shape of array — used in ML
+
+      intermediate
+    
+
+    
+
+      
+
+        scores = df["report_card"].values
+
+
+        # reshape to 2D — needed for ML models
+
+        scores_2d = scores.reshape(-1, 1)
+
+        print(scores_2d.shape)
+
+
+        # flatten back to 1D
+
+        scores_1d = scores_2d.flatten()
+
+        print(scores_1d.shape)
+      
+
+    
+
+  
+
+
+  
+
+    
+
+      
+7
+
+      
+Statistical functions
+Advanced stats on your dataset
+
+      intermediate
+    
+
+    
+
+      
+
+        scores = df["report_card"].values
+
+
+        # median — middle value
+
+        print(np.median(scores))
+
+
+        # percentile — same as Q1 Q3
+
+        print(np.percentile(scores, 25))  # Q1
+
+        print(np.percentile(scores, 75))  # Q3
+
+
+        # correlation between two columns
+
+        hours = df["hours_studied"].values
+
+        print(np.corrcoef(hours, scores))
+      
+
+    
+
+  
+
+
+  
+
+    
+
+      
+8
+
+      
+Where — find conditions
+Find positions of values in array
+
+      intermediate
+    
+
+    
+
+      
+
+        scores = df["report_card"].values
+
+
+        # find positions where score above 80
+
+        print(np.where(scores > 80))
+
+
+        # replace values — below 50 = fail, above = pass
+
+        result = np.where(scores >= 50, "pass", "fail")
+
+        print(result[:10])
+      
+
+    
+
+  
+
 # ============================================================
 # END OF FILE
 # ============================================================
