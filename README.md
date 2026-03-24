@@ -1,5 +1,5 @@
 📊 Student Performance Factor Analysis
-
+----------- basic -----------
 
 A data analysis project to find which factors affect student academic results the most.
 
